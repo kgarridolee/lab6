@@ -1,32 +1,46 @@
+def password_encoder(data):
+    result = ''
+    for digit in data:
+        new_digit = str((int(digit) + 3) % 10)
+        result += new_digit
+    return result
+    pass
+
+# Did the encoder, believe the decoder should just be the inverse of encoder
+
+
 def main():
-    # Declaring var
-    num1 = 1
-    num2 = 2
-    num3 = 3
+    while True:
+        # Declaring var
+        num1 = 1
+        num2 = 2
+        num3 = 3
 
-    # Print menu
-    print("Menu")
-    print("-------------")
-    print(f"{num1}. Encode")
-    print(f"{num2}. Decode")
-    print(f"{num3}. Quit\n")
+        # Print menu
+        print("Menu")
+        print("-------------")
+        print(f"{num1}. Encode")
+        print(f"{num2}. Decode")
+        print(f"{num3}. Quit\n")
 
-    # Get user input
-    option = input("Please enter an option: ")
+        # Get user input
+        option = int(input("Please enter an option: "))
 
-    if option == num1:
-        encode_pass = input("Please enter your password to encode")
-        pass
-    elif option == num2:
-        decode_pass = input("The encoded password is {}, and the original password is {}.\n")
-        pass
-    elif option == num3:
-        quit()
+        if option == num1:
+            encode_pass = input("Please enter your password to encode: ")
+            pass_encoded = password_encoder(encode_pass)
+            print("Your password has been encoded and stored!")
+            pass
+        elif option == num2:
+            # Possible issue with print statement if passed before choosing option 1
+            print(f"The encoded password is", pass_encoded, ", and the original password is"
+                                                            '''Need decoded part here''' ".\n")
+            pass
+        elif option == num3:
+            break
+        else:
+            print("Invalid menu option.")
 
-    # this is my first GitHub addition
 
-    print("hello world")
-
-
-if __name__ == '__main__':
+if __name__ in '__main__':
     main()
